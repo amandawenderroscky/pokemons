@@ -6,16 +6,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PokemonListComponent } from '../pokemon-list/pokemon-list.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { HomeComponent } from '../home/home.component';
+import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
+import { Page } from 'src/app/components/pagination/page.model';
+import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 describe('PokemonDetailComponent', () => {
   let component: PokemonDetailComponent;
   let fixture: ComponentFixture<PokemonDetailComponent>;
 
+  let componentPagination: PaginationComponent;
+  let fixturePagination: ComponentFixture<PaginationComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PokemonDetailComponent, PokemonListComponent],
+      declarations: [PokemonDetailComponent, PokemonListComponent, HomeComponent, PaginationComponent],
       imports: [
+        HttpClientModule,
         Angular2FontawesomeModule,
+        LocalStorageModule.forRoot({
+          prefix: 'pokemons',
+          storageType: 'localStorage'
+        }),
         AppRoutingModule
       ]
     })
@@ -26,6 +39,10 @@ describe('PokemonDetailComponent', () => {
     fixture = TestBed.createComponent(PokemonDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    fixturePagination = TestBed.createComponent(PaginationComponent);
+    componentPagination = fixturePagination.componentInstance;
+    componentPagination.page = new Page();
+    fixturePagination.detectChanges();
   });
 
   it('should create',

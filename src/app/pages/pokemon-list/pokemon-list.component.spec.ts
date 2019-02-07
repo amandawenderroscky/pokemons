@@ -4,6 +4,10 @@ import { PokemonListComponent } from './pokemon-list.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome';
 import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { HomeComponent } from '../home/home.component';
+import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 describe('PokemonListComponent', () => {
   let component: PokemonListComponent;
@@ -11,13 +15,18 @@ describe('PokemonListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonListComponent, PokemonDetailComponent ],
+      declarations: [PokemonListComponent, PokemonDetailComponent, HomeComponent, PaginationComponent],
       imports: [
+        HttpClientModule,
         Angular2FontawesomeModule,
-        AppRoutingModule
+        AppRoutingModule,
+        LocalStorageModule.forRoot({
+          prefix: 'pokemons',
+          storageType: 'localStorage'
+        })
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

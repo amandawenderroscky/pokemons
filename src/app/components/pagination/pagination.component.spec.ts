@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginationComponent } from './pagination.component';
+import { Page } from './page.model';
 
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
@@ -16,6 +17,8 @@ describe('PaginationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationComponent);
     component = fixture.componentInstance;
+    component.page = new Page();
+    component.nameItems = "Pokémons";
     fixture.detectChanges();
   });
 

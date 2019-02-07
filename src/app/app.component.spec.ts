@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { PokemonService } from './services/pokemon.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,6 +15,7 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientModule,
+        FormsModule,
         Angular2FontawesomeModule,
         LocalStorageModule.forRoot({
           prefix: 'pokemons',

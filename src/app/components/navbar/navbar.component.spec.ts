@@ -1,18 +1,26 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome';
 
-describe('TopBarComponent', () => {
+import { Router } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { HomeComponent } from 'src/app/pages/home/home.component';
+import { PokemonListComponent } from 'src/app/pages/pokemon-list/pokemon-list.component';
+import { PokemonDetailComponent } from 'src/app/pages/pokemon-detail/pokemon-detail.component';
+
+describe('NavBarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NavbarComponent],
+      declarations: [NavbarComponent, HomeComponent, PokemonListComponent, PokemonDetailComponent],
       imports: [
-        Angular2FontawesomeModule
+        FormsModule,
+        Angular2FontawesomeModule,
+        AppRoutingModule
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -25,9 +33,11 @@ describe('TopBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create',
+    inject([Router], (router: Router) => {
+      expect(component).toBeTruthy();
+    })
+  );
 
   it('should render the logo', async(() => {
     fixture.detectChanges();
