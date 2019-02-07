@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card mt-5 table-responsive">
+    <div class="card-body">
+      <div class="table-title">
+        <h2>Pokémons</h2>
+      </div>
+      <div class="d-flex spinner-border justify-content-center align-items-center loading" role="status" *ngIf="loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr class="text-center d-flex">
+            <th class="col-1"></th>
+            <th class="col-2"></th>
+            <th class="col-3">Pokémon</th>
+            <th class="col-2">Height</th>
+            <th class="col-2">Weight</th>
+            <th class="col-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pokemon of lista?.pokemonsList; let i = index" class="d-flex">
+            <td class="col-1">
+              <span (click)="favoritePokemon(pokemon, !pokemon.favorite)" class="favorite" title="Favorite Pokemón">
+                <i fa [name]="'star-o'" *ngIf="!pokemon.favorite"></i>
+                <i fa [name]="'star'" *ngIf="pokemon.favorite"></i>
+              </span>
+            </td>
+            <td class="col-2">
+              <a [routerLink]="['/pokemon-details', pokemon.id]">
+                <img src="{{ pokemon.imgs.front_default }} " class="shadow bg-white rounded avatar" alt="Avatar" title="{{ pokemon.name | titlecase}}" />
+              </a></td>
+            <td class="col-3">
+              <a [routerLink]="['/pokemon-details', pokemon.id]">
+                <h3 class="mt-2">{{ pokemon.name | titlecase}}</h3>
+              </a>
+            </td>
+            <td class="col-2">{{ pokemon.height }} </td>
+            <td class="col-2">{{ pokemon.weight }}</td>
+            <td class="col-2">
+              <a [routerLink]="['/pokemon-details', pokemon.id]" class="view" title="View Pokémon">
+                <i fa [name]="'eye'"></i>
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="clearfix">
+        <app-pagination (paginar)='paginateList()' [page]='page' nameItems='Pokémons'></app-pagination>
+      </div>
+    </div>
+  </div>
+</div>

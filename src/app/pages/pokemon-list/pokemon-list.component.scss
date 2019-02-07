@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+
+.table-title {
+    background: $blue-pokemon !important;
+    color: #fff;
+    padding: 20px 30px 15px !important;
+    border-radius: 4px;
+}
+
+.avatar {
+    vertical-align: middle;
+    padding: 0px;
+    width: 75px;
+}
+
+
+.table tr.d-flex td {
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 0.7rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table.table-hover tbody tr:hover {
+    background-color: lighten($yellow-pokemon, 45%); 
+}
+
+.favorite {
+    color: $yellow-pokemon;
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables 
+@import "styles/variables";
+@import "styles/theme";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// General CSS
+.fa {
+    font-size: 1.2rem !important;
+}
+
+.loading {
+    margin: 0px auto;
+}
