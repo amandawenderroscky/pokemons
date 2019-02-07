@@ -88,30 +88,40 @@ To execute the unit tests via [Karma](https://karma-runner.github.io).
 
 * The following unit tests were implemented:
 
-AppComponent
+AppComponent:
+
     should create the app
 
-NavBarComponent
+NavBarComponent:
+
     should create
+
     should render the logo
 
-PaginationComponent
+PaginationComponent:
+
     should create
 
-HomeComponent
+HomeComponent:
+
     should create
 
-PokemonDetailComponent
+PokemonDetailComponent:
+
     should create
 
-PokemonListComponent
+PokemonListComponent:
+
     should create
 
-PokemonService
+PokemonService:
+
     should return a Pokemon
+
     should return an Observable<Pokemon>
-    
+
     should return a Pokemon List
+    
     should return a List of Pokemons
 
 
